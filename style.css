@@ -117,7 +117,7 @@ ul {
   align-items: center;
   justify-content: space-between;
   min-height: 96px;
-  padding: 8px 0;
+  padding: 8px 12px;
   gap: 20px;
 }
 
@@ -177,6 +177,17 @@ ul {
 
 .mobile-menu.open {
   display: flex;
+  position: fixed;
+  top: 77px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 .btn {
@@ -569,7 +580,7 @@ ul {
 
 .road-car {
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   top: 13px;
   left: 10%;
   width: 46px;
@@ -645,6 +656,7 @@ ul {
 }
 
 .step-finish .step-num {
+  z-index: 4;
   background: linear-gradient(135deg, var(--brand-dark), var(--brand));
   box-shadow: 0 10px 24px rgba(213, 95, 143, 0.35);
   font-size: 24px;
@@ -654,7 +666,7 @@ ul {
   position: absolute;
   top: -12px;
   left: calc(50% + 18px);
-  z-index: 3;
+  z-index: 5;
   font-size: 26px;
   line-height: 1;
   opacity: 0;
@@ -960,6 +972,19 @@ ul {
   color: var(--muted);
 }
 
+.hero-buttons.stage-actions,
+.hero-buttons.signup-actions {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 10px;
+}
+
+.stage-actions .btn,
+.signup-actions .btn {
+  text-align: center;
+}
+
 .stage-actions {
   margin-top: 4px;
 }
@@ -1228,38 +1253,6 @@ footer {
   display: none !important;
 }
 
-.cart-fab {
-  position: fixed;
-  left: 16px;
-  bottom: 16px;
-  z-index: 999;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
-}
-
-.cart-count {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  min-width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background: var(--brand);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 5px;
-}
-
 .cart-backdrop {
   position: fixed;
   inset: 0;
@@ -1420,8 +1413,8 @@ footer {
 
   .over-photo {
     position: static;
-    max-width: 420px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
   }
 
   .photo-slot {
@@ -1434,6 +1427,7 @@ footer {
 
   .header-inner {
     min-height: 76px;
+    padding: 8px 20px;
   }
 
   .desktop-nav,
@@ -1451,105 +1445,24 @@ footer {
   }
 
   .packages-slider {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .package.popular {
     transform: none;
   }
 
-  .badge-top {
-    top: 8px;
-    left: 8px;
-    font-size: 10px;
-    padding: 5px 8px;
-  }
-
-  .pkg-img {
-    height: 56px;
-  }
-
-  .pkg-img svg {
-    width: 44px;
-    height: 22px;
-  }
-
-  .pkg-body {
-    padding: 10px;
-  }
-
-  .pkg-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.6px;
-  }
-
-  .pkg-body h3 {
-    font-size: 16px;
-    margin: 0 0 6px;
-  }
-
-  .pkg-desc {
-    font-size: 12px;
-  }
-
-  .pkg-list {
-    margin: 4px 0 8px;
-  }
-
-  .pkg-list li {
-    font-size: 11.5px;
-    padding: 5px 0 5px 15px;
-    line-height: 1.3;
-  }
-
-  .pkg-list li::before {
-    top: 5px;
-    font-size: 11px;
-  }
-
-  .pkg-price {
-    font-size: 20px;
-    letter-spacing: -0.3px;
-  }
-
-  .pkg-terms {
-    font-size: 11px;
-    padding: 4px 8px;
-    margin: 4px 0 8px;
-    line-height: 1.3;
-  }
-
-
-  .package .btn {
+  .package .btn,
+  .package-custom .btn {
     width: 100%;
-    padding: 9px 8px;
-    font-size: 12.5px;
     text-align: center;
-  }
-
-  .package-custom .pkg-body {
-    padding: 12px;
-  }
-
-  .package-custom h3 {
-    font-size: 16px;
-  }
-
-  .package-custom .pkg-desc {
-    font-size: 12px;
+    justify-content: center;
   }
 
   .pkg-custom-actions {
     flex-direction: column;
     gap: 8px;
-  }
-
-  .package-custom .btn {
-    width: 100%;
-    font-size: 12.5px;
-    padding: 9px 8px;
-    justify-content: center;
   }
 }
 
@@ -1557,5 +1470,14 @@ footer {
   .floating-cta {
     bottom: 18px;
     right: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-buttons.stage-actions,
+  .hero-buttons.signup-actions {
+    display: grid;
+    grid-auto-flow: row;
+    width: 100%;
   }
 }

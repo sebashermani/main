@@ -234,12 +234,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (hamburger && mobileMenu) {
     hamburger.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
+      const open = mobileMenu.classList.toggle("open");
+      document.body.classList.toggle("menu-open", open);
     });
 
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         mobileMenu.classList.remove("open");
+        document.body.classList.remove("menu-open");
       });
     });
   }
@@ -256,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const rect = stepsRoad.getBoundingClientRect();
       const vh = window.innerHeight;
       const p = mobileQuery.matches
-        ? (vh - rect.top) / (vh * 0.65 + rect.height)
+        ? (vh * 0.7 - rect.top) / (vh * 0.35 + rect.height)
         : (vh - rect.top) / (vh * 0.85);
       return Math.max(0, Math.min(1, p));
     }
@@ -349,7 +351,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const cartFormBtn = document.getElementById("cartFormBtn");
   const WA_NUMBER = "31XXXXXXXXX";
 
-  if (cartFab && cartDrawer) {
+  if (cartDrawer) {
     let cart = [];
     try {
       cart = JSON.parse(localStorage.getItem("da_cart") || "[]");
@@ -379,8 +381,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function render() {
       const count = cart.reduce((s, it) => s + it.qty, 0);
-      cartCountEl.hidden = count === 0;
-      cartCountEl.textContent = count;
+      if (cartCountEl) {
+        cartCountEl.hidden = count === 0;
+        cartCountEl.textContent = count;
+      }
       cartEmptyEl.hidden = cart.length > 0;
       cartFootEl.hidden = cart.length === 0;
 
@@ -454,7 +458,7 @@ document.addEventListener("DOMContentLoaded", function () {
       cartBackdrop.hidden = true;
     }
 
-    cartFab.addEventListener("click", openCart);
+    if (cartFab) cartFab.addEventListener("click", openCart);
     cartClose.addEventListener("click", closeCart);
     cartBackdrop.addEventListener("click", closeCart);
     document.addEventListener("keydown", (e) => {
