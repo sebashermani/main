@@ -69,6 +69,10 @@ ul {
   padding-right: 12px;
 }
 
+.wrap-wide {
+  max-width: 1320px;
+}
+
 .grid {
   display: grid;
   gap: 16px;
@@ -501,7 +505,7 @@ body.menu-open {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 16px;
-  align-items: start;
+  align-items: stretch;
   margin-top: 4px;
 }
 
@@ -510,6 +514,8 @@ body.menu-open {
   overflow: hidden;
   padding: 0;
   border: 2px solid rgba(213, 95, 143, 0.22);
+  display: flex;
+  flex-direction: column;
 }
 
 .stars {
@@ -599,8 +605,18 @@ body.menu-open {
 
 .step {
   position: relative;
-  text-align: center;
-  padding: 0 4px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0;
+}
+
+.step-body {
+  flex: 1;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 18px;
 }
 
 .step h3 {
@@ -729,22 +745,16 @@ body.menu-open {
     display: grid;
     grid-template-columns: 54px 1fr;
     column-gap: 16px;
-    row-gap: 4px;
-    text-align: left;
     align-items: start;
-    padding: 0;
   }
 
   .step-num {
     margin: 0;
-    grid-row: 1 / span 2;
   }
 
-  .step h3,
-  .step p,
-  .step-tag {
+  .step-body {
     grid-column: 2;
-    justify-self: start;
+    padding: 14px 16px;
   }
 
 }
@@ -877,6 +887,13 @@ body.menu-open {
 
 .pkg-body {
   padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.pkg-list {
+  flex: 1;
 }
 
 .pkg-body h3 {
