@@ -1215,6 +1215,26 @@ footer {
   margin: 10px 0 0;
 }
 
+button.btn {
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.req {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.form-req {
+  margin: 8px 0 0;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(11, 18, 32, 0.4);
+}
+
 .btn.primary,
 .btn.blue,
 .btn.whatsapp {

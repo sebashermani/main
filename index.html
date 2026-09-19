@@ -284,7 +284,7 @@
               <h3>Liever een pakket op maat?</h3>
               <p class="pkg-desc">Heb je al rijervaring, moet je juist snel je rijbewijs halen of past geen enkel pakket precies bij jouw situatie? Bel even, dan bespreken we samen wat jij nodig hebt en stellen we een pakket op maat samen.</p>
               <div class="pkg-custom-actions">
-                <a class="btn blue" href="tel:+31619701710"><svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z" fill="currentColor"/></svg>Bel nu</a>
+                <a class="btn blue" href="tel:+31619701710"><svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z" fill="currentColor"/></svg>Bel direct</a>
                 <a class="btn whatsapp" href="https://wa.me/31XXXXXXXXX">Stuur een WhatsApp</a>
               </div>
             </div>
@@ -489,7 +489,7 @@
             <p>Voor categorie B gaat het om minimaal 35 uur zelf lesgeven en 5 uur meekijken. Een stageplek regelen we in overleg, zodat het past bij jouw opleiding en agenda.</p>
             <div class="hero-buttons stage-actions">
               <a class="btn whatsapp" href="https://wa.me/31XXXXXXXXX">Vraag naar een stageplek</a>
-              <a class="btn blue" href="tel:+31619701710"><svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z" fill="currentColor"/></svg>Bel nu</a>
+              <a class="btn blue" href="tel:+31619701710"><svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z" fill="currentColor"/></svg>Bel direct</a>
             </div>
           </div>
           <div class="card stage-list-card">
@@ -565,15 +565,16 @@
           <h3>Snel aanmelden</h3>
           <div class="hero-buttons signup-actions">
             <a class="btn whatsapp" href="https://wa.me/31XXXXXXXXX">Aanmelden via WhatsApp</a>
-            <a class="btn blue" href="tel:+31619701710">Bel direct</a>
+            <a class="btn blue" href="tel:+31619701710"><svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z" fill="currentColor"/></svg>Bel direct</a>
           </div>
           <form id="signupForm" action="#" method="post">
             <div class="grid two">
-              <label>Naam<br><input type="text" id="formNaam" name="naam" autocomplete="name" required></label>
-              <label>Telefoon<br><input type="tel" id="formTelefoon" name="telefoon" autocomplete="tel" inputmode="tel" pattern="[0-9+ ()-]{8,}" title="Vul een geldig telefoonnummer in, bijvoorbeeld 06 12345678" required></label>
+              <label>Naam <span class="req" aria-hidden="true">*</span><br><input type="text" id="formNaam" name="naam" autocomplete="name" placeholder="Bijv. Alan Aziz" required></label>
+              <label>Telefoon <span class="req" aria-hidden="true">*</span><br><input type="tel" id="formTelefoon" name="telefoon" autocomplete="tel" inputmode="tel" pattern="[0-9+ ()-]{8,}" title="Vul een geldig telefoonnummer in, bijvoorbeeld 06 12345678" placeholder="Bijv. 06 12345678" required></label>
             </div>
-            <label>Bericht (optioneel)<br><textarea rows="3" id="formBericht" name="bericht"></textarea></label>
-            <button class="btn primary" type="submit">Versturen via WhatsApp</button>
+            <label>Bericht (optioneel)<br><textarea rows="3" id="formBericht" name="bericht" placeholder="Bijv. Ik wil graag starten met rijles, het liefst in de avond. Wanneer kan ik een eerste les inplannen?"></textarea></label>
+            <button class="btn whatsapp" type="submit">Versturen via WhatsApp</button>
+            <p class="muted small form-req">* verplicht</p>
             <p class="muted small form-note" id="formNote" hidden>WhatsApp is geopend met je bericht. Druk daar op verzenden en we nemen contact met je op.</p>
           </form>
         </div>
