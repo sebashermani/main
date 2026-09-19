@@ -69,10 +69,6 @@ ul {
   padding-right: 12px;
 }
 
-.wrap-wide {
-  max-width: 1320px;
-}
-
 .grid {
   display: grid;
   gap: 16px;
@@ -1485,10 +1481,6 @@ footer {
 }
 
 @media (min-width: 901px) {
-  .step-body h3 {
-    min-height: 3em;
-  }
-
   .floating-cta {
     bottom: 18px;
     right: 18px;
