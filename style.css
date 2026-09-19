@@ -376,6 +376,7 @@ body.menu-open {
 }
 
 .package-custom {
+  align-self: start;
   border-style: dashed;
   border-width: 2px;
   background: linear-gradient(160deg, #fff, #f4f9fd);
