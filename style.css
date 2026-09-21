@@ -235,7 +235,7 @@ body.menu-open {
 
 .hero {
   padding: 56px 0 44px;
-  background: linear-gradient(180deg, rgba(253, 238, 244, 0.92), rgba(255, 255, 255, 0.96)), url("https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1600&q=55") center/cover;
+  background: linear-gradient(180deg, rgba(253, 238, 244, 0.78), rgba(255, 255, 255, 0.86)), url("https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1600&q=55") center/cover;
 }
 
 .hero-inner {
@@ -249,14 +249,25 @@ body.menu-open {
 
 .hero-logo {
   display: block;
-  width: min(420px, 82%);
+  width: min(300px, 70%);
   height: auto;
-  margin: 0 auto 22px;
+  margin: 0 auto 14px;
 }
 
-.hero-sub {
-  font-size: 17px;
-  margin: 4px 0 0;
+.hero-call {
+  margin: 14px 0 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.hero-call a {
+  color: var(--blue-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero-call a:hover {
+  text-decoration: underline;
 }
 
 .hero-buttons {
