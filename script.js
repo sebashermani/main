@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const vh = window.innerHeight;
       const p = mobileQuery.matches
         ? (vh * 0.7 - rect.top) / (vh * 0.1 + finishCenter())
-        : (vh - rect.top) / (vh * 0.85);
+        : (vh - rect.top) / (rect.height + vh * 0.1);
       return Math.max(0, Math.min(1, p));
     }
 

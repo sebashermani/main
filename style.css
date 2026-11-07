@@ -290,6 +290,17 @@ body.menu-open {
   color: var(--blue);
 }
 
+.mobile-menu a.mobile-menu-cta {
+  margin-top: 18px;
+  padding: 14px 18px;
+  text-align: center;
+}
+
+.mobile-menu a.mobile-menu-cta,
+.mobile-menu a.mobile-menu-cta:hover {
+  color: #fff;
+}
+
 #contact .card a {
   color: var(--blue);
   font-weight: 600;
