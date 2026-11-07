@@ -12,7 +12,11 @@ jobs:
   nieuws:
     runs-on: ubuntu-latest
     steps:
+      # De site draait vanaf deze branch, dus daar moet het nieuws terechtkomen,
+      # ook als de geplande run vanaf de standaardbranch start.
       - uses: actions/checkout@v4
+        with:
+          ref: claude/website-refinement-completion-hkgvgk
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
