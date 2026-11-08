@@ -373,7 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const lines = cart.map((it) => `• ${it.qty}x ${it.name}: ${euro(it.price * it.qty)}`);
       const total = cart.reduce((s, it) => s + it.price * it.qty, 0);
       return (
-        "Hallo! Ik wil graag het volgende aanvragen via rijschool-driveaway.nl:\n" +
+        "Hallo! Ik wil graag het volgende aanvragen via drive-away.nl:\n" +
         lines.join("\n") +
         "\nTotaal: " + euro(total)
       );
