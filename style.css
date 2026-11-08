@@ -877,7 +877,7 @@ body.menu-open {
 }
 
 .pkg-img {
-  height: 96px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1565,10 +1565,6 @@ textarea::placeholder {
 
   .section {
     padding: 40px 0;
-  }
-
-  .pkg-img {
-    height: 60px;
   }
 
   .pkg-body h3 {
