@@ -323,10 +323,6 @@ body.menu-open {
 }
 
 .over-layout {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 32px;
-  align-items: start;
   margin-top: 24px;
 }
 
@@ -355,9 +351,15 @@ body.menu-open {
 }
 
 .over-photo {
-  margin: 0;
-  position: sticky;
-  top: 120px;
+  float: right;
+  width: 260px;
+  margin: 0 0 16px 28px;
+}
+
+.over-text::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .photo-slot {
@@ -1482,9 +1484,9 @@ textarea::placeholder {
   }
 
   .over-photo {
-    position: static;
-    max-width: none;
-    margin: 0;
+    float: none;
+    width: auto;
+    margin: 0 0 18px;
   }
 
   .photo-slot {
