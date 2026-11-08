@@ -1483,10 +1483,16 @@ textarea::placeholder {
     padding: 20px 18px;
   }
 
+  .over-layout .over-text {
+    display: flex;
+    flex-direction: column;
+  }
+
   .over-photo {
     float: none;
+    order: 1;
     width: auto;
-    margin: 0 0 18px;
+    margin: 22px 0 0;
   }
 
   .photo-slot {
