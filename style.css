@@ -1541,6 +1541,57 @@ textarea::placeholder {
     bottom: 18px;
     right: 18px;
   }
+
+  /* Compacter op laptops: veel laptops staan op 125-150% schaal */
+  section {
+    scroll-margin-top: 84px;
+  }
+
+  .header-inner {
+    min-height: 68px;
+  }
+
+  .site-logo {
+    height: 36px;
+  }
+
+  .hero {
+    padding: 40px 0 36px;
+  }
+
+  .hero-logo {
+    display: none;
+  }
+
+  .hero-pill {
+    margin-bottom: 10px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .pkg-img {
+    height: 60px;
+  }
+
+  .pkg-body h3 {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .pkg-list li {
+    padding: 6px 0 6px 22px;
+  }
+
+  .pkg-price {
+    font-size: 28px;
+  }
+
+  .section-intro {
+    max-width: 860px;
+    margin-bottom: 18px;
+  }
 }
 
 @media (max-width: 600px) {
