@@ -1592,6 +1592,68 @@ textarea::placeholder {
     max-width: 860px;
     margin-bottom: 18px;
   }
+
+  /* Kies wat bij jou past: losse lessen en extra pakketten naast elkaar */
+  .price-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .lesson-box {
+    padding: 16px 18px;
+  }
+
+  .price-group {
+    margin-bottom: 18px;
+  }
+
+  .lesson-options {
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .option {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 14px 16px;
+  }
+
+  .option h3,
+  .option p {
+    flex-basis: 100%;
+  }
+
+  .option .price {
+    flex: 1;
+    padding-top: 8px;
+  }
+
+  .option .add-btn {
+    margin-top: 8px;
+    padding: 7px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Lage schermen (laptops met 125-150% schaal): nog iets compacter */
+@media (min-width: 901px) and (max-height: 760px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  .hero {
+    padding: 28px 0 28px;
+  }
+
+  .section {
+    padding: 32px 0;
+  }
 }
 
 @media (max-width: 600px) {
