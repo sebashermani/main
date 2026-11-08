@@ -324,7 +324,7 @@ body.menu-open {
 
 .over-layout {
   display: grid;
-  grid-template-columns: 1fr 200px;
+  grid-template-columns: 1fr 260px;
   gap: 24px;
   align-items: start;
   margin-top: 24px;
