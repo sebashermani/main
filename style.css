@@ -883,6 +883,10 @@ body.menu-open {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.18));
 }
 
+.pkg-img-1 {
+  background: linear-gradient(135deg, #5eb0e5, #a9d8f5);
+}
+
 .pkg-img-2 {
   background: linear-gradient(135deg, #2f7fb5, #5eb0e5);
 }
