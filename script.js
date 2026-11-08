@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const bericht = (document.getElementById("formBericht").value || "").trim();
       let text = "Hoi Alan, ik wil me graag aanmelden voor rijles.\nNaam: " + naam + "\nTelefoon: " + tel;
       if (bericht) text += "\n\n" + bericht;
-      const url = "https://wa.me/31XXXXXXXXX?text=" + encodeURIComponent(text);
+      const url = "https://wa.me/31619791710?text=" + encodeURIComponent(text);
       const link = document.createElement("a");
       link.href = url;
       link.target = "_blank";
@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const cartTotalEl = document.getElementById("cartTotal");
   const cartWhatsapp = document.getElementById("cartWhatsapp");
   const cartFormBtn = document.getElementById("cartFormBtn");
-  const WA_NUMBER = "31XXXXXXXXX";
+  const WA_NUMBER = "31619791710";
 
   if (cartDrawer) {
     let cart = [];
