@@ -261,7 +261,7 @@ body.menu-open {
 }
 
 .hero-pill strong {
-  color: var(--blue-dark);
+  color: var(--text);
 }
 
 .hero-call {
@@ -464,17 +464,67 @@ body.menu-open {
   break-inside: avoid;
 }
 
+.reviews-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.reviews-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.reviews-arrow {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  cursor: pointer;
+}
+
 #reviewsSlider {
   columns: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
   gap: 16px;
-  align-items: start;
+  align-items: flex-start;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  scroll-padding-inline: 12px;
+  padding: 8px 12px 36px;
+  margin: -8px -12px -20px;
+}
+
+#reviewsSlider::-webkit-scrollbar {
+  display: none;
 }
 
 #reviewsSlider .review {
   display: block;
+  flex: 0 0 calc((100% - 48px) / 4);
   margin: 0;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 1000px) {
+  #reviewsSlider .review {
+    flex-basis: calc((100% - 16px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  #reviewsSlider .review {
+    flex-basis: 85%;
+  }
+
+  .reviews-controls {
+    display: none;
+  }
 }
 
 .reviews-more {
@@ -937,7 +987,7 @@ body.menu-open {
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--brand);
+  color: #b23a6b;
   margin-bottom: 2px;
 }
 
@@ -1120,6 +1170,13 @@ body.menu-open {
 
 .price-group:last-child {
   margin-bottom: 0;
+}
+
+/* Lijntjes tussen de drie vakken */
+.price-group + .price-group,
+.price-pair + .price-group {
+  border-top: 2px solid rgba(94, 176, 229, 0.45);
+  padding-top: 18px;
 }
 
 .price-group > h3 {
@@ -1590,6 +1647,13 @@ textarea::placeholder {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
+  }
+
+  .price-pair .price-group + .price-group {
+    border-top: 0;
+    padding-top: 0;
+    border-left: 2px solid rgba(94, 176, 229, 0.45);
+    padding-left: 24px;
   }
 
   .lesson-box {

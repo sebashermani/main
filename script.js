@@ -189,44 +189,72 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const reviewsContainer = document.getElementById("reviewsSlider");
-  const reviewsAll = document.getElementById("reviewsAll");
-  const reviewsOverlay = document.getElementById("reviewsOverlay");
-  const reviewsOpen = document.getElementById("reviewsOpen");
-  const PREVIEW_COUNT = 4;
-  if (reviewsContainer && REVIEWS.length) {
-    const short = REVIEWS.filter((r) => r.text.length <= 420);
-    const pool = (short.length >= PREVIEW_COUNT ? short : REVIEWS).slice().sort(() => Math.random() - 0.5);
-    renderReviews(reviewsContainer, pool.slice(0, PREVIEW_COUNT));
-    if (reviewsOpen) {
-      if (REVIEWS.length <= PREVIEW_COUNT) reviewsOpen.hidden = true;
-      else reviewsOpen.textContent = "Alle " + REVIEWS.length + " reviews bekijken";
+  const reviewsSlider = document.getElementById("reviewsSlider");
+  if (reviewsSlider && REVIEWS.length) {
+    renderReviews(reviewsSlider, REVIEWS.slice().sort(() => Math.random() - 0.5));
+
+    const revPrev = document.getElementById("revPrev");
+    const revNext = document.getElementById("revNext");
+
+    function cardStep() {
+      const first = reviewsSlider.querySelector(".review");
+      if (!first) return 300;
+      const gap = parseFloat(getComputedStyle(reviewsSlider).columnGap) || 16;
+      return first.getBoundingClientRect().width + gap;
     }
-  }
-  if (reviewsAll && reviewsOverlay && reviewsOpen) {
-    let filled = false;
-    function openReviews() {
-      if (!filled) {
-        renderReviews(reviewsAll, REVIEWS);
-        filled = true;
+
+    function slide(dir) {
+      const max = reviewsSlider.scrollWidth - reviewsSlider.clientWidth;
+      if (dir > 0 && reviewsSlider.scrollLeft >= max - 4) {
+        reviewsSlider.scrollTo({ left: 0, behavior: "smooth" });
+      } else if (dir < 0 && reviewsSlider.scrollLeft <= 4) {
+        reviewsSlider.scrollTo({ left: max, behavior: "smooth" });
+      } else {
+        reviewsSlider.scrollBy({ left: dir * cardStep(), behavior: "smooth" });
       }
-      reviewsOverlay.hidden = false;
-      reviewsOverlay.scrollTop = 0;
-      document.body.style.overflow = "hidden";
     }
-    function closeReviews() {
-      reviewsOverlay.hidden = true;
-      document.body.style.overflow = "";
-      reviewsOpen.focus();
+
+    let autoTimer = null;
+    let resumeTimer = null;
+    let hovering = false;
+    const autoplay = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function stopAuto() {
+      if (autoTimer) clearInterval(autoTimer);
+      autoTimer = null;
     }
-    reviewsOpen.addEventListener("click", openReviews);
-    ["reviewsClose", "reviewsCloseBottom"].forEach((id) => {
-      const btn = document.getElementById(id);
-      if (btn) btn.addEventListener("click", closeReviews);
+
+    function startAuto() {
+      stopAuto();
+      if (!autoplay || hovering) return;
+      autoTimer = setInterval(() => slide(1), 5000);
+    }
+
+    function pauseThenResume() {
+      stopAuto();
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(startAuto, 8000);
+    }
+
+    reviewsSlider.addEventListener("mouseenter", () => {
+      hovering = true;
+      stopAuto();
     });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !reviewsOverlay.hidden) closeReviews();
+    reviewsSlider.addEventListener("mouseleave", () => {
+      hovering = false;
+      startAuto();
     });
+    ["touchstart", "pointerdown", "wheel"].forEach((ev) =>
+      reviewsSlider.addEventListener(ev, pauseThenResume, { passive: true })
+    );
+    reviewsSlider.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { slide(-1); pauseThenResume(); }
+      if (e.key === "ArrowRight") { slide(1); pauseThenResume(); }
+    });
+    if (revPrev) revPrev.addEventListener("click", () => { slide(-1); pauseThenResume(); });
+    if (revNext) revNext.addEventListener("click", () => { slide(1); pauseThenResume(); });
+
+    startAuto();
   }
 
   const hamburger = document.getElementById("hamburgerBtn");

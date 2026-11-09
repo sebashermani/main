@@ -307,7 +307,7 @@
       <div class="wrap hero-inner">
         <img src="DriveAway_Logo_PNG.png" class="hero-logo reveal" alt="Logo Rijschool DriveAway">
         <h1>Rijschool in <span>Den Haag en omgeving</span>: haal je rijbewijs met vertrouwen</h1>
-        <p class="hero-pill">Rijles in een <strong>schakelauto</strong> én <strong>automaat</strong></p>
+        <p class="hero-pill">Rijles in een <strong>Schakelauto</strong> én <strong>Automaat</strong></p>
         <div class="hero-buttons hero-buttons-center">
           <a class="btn primary" href="#aanmelden">Snel aanmelden</a>
           <a class="btn whatsapp" href="https://wa.me/31619791710">WhatsApp</a>
@@ -584,12 +584,17 @@
 
     <section id="reviews" class="section alt">
       <div class="wrap">
-        <h2>Reviews van leerlingen</h2>
-        <p class="muted section-intro">Wat leerlingen zeggen over instructeur Alan</p>
-        <div class="reviews-slider" id="reviewsSlider"></div>
-        <div class="reviews-more">
-          <button class="btn blue" id="reviewsOpen" type="button">Alle reviews bekijken</button>
+        <div class="reviews-head">
+          <div>
+            <h2>Reviews van leerlingen</h2>
+            <p class="muted section-intro">Wat leerlingen zeggen over instructeur Alan</p>
+          </div>
+          <div class="reviews-controls">
+            <button class="btn reviews-arrow" type="button" id="revPrev" aria-label="Vorige review">←</button>
+            <button class="btn reviews-arrow" type="button" id="revNext" aria-label="Volgende review">→</button>
+          </div>
         </div>
+        <div class="reviews-slider" id="reviewsSlider" tabindex="0" aria-label="Reviews van leerlingen"></div>
       </div>
     </section>
 
@@ -801,21 +806,6 @@
       </div>
     </section>
   </main>
-
-  <div class="reviews-overlay" id="reviewsOverlay" hidden>
-    <div class="reviews-overlay-head">
-      <div class="wrap reviews-overlay-bar">
-        <h3>Alle reviews</h3>
-        <button class="btn blue" id="reviewsClose" type="button">Terug naar de site</button>
-      </div>
-    </div>
-    <div class="wrap reviews-overlay-body">
-      <div class="reviews-slider" id="reviewsAll"></div>
-      <div class="reviews-more">
-        <button class="btn blue" id="reviewsCloseBottom" type="button">Terug naar de site</button>
-      </div>
-    </div>
-  </div>
 
   <a class="floating-cta" id="floatingCta" href="#aanmelden">Aanmelden</a>
 
