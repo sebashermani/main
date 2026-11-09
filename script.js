@@ -207,7 +207,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const reviewsSlider = document.getElementById("reviewsSlider");
   if (reviewsSlider && REVIEWS.length) {
-    renderReviews(reviewsSlider, REVIEWS.slice().sort(() => Math.random() - 0.5));
+    // Drie keer dezelfde rij achter elkaar: we blijven in de middelste en springen
+    // ongemerkt terug als je in de eerste of laatste kopie komt. Zo loopt het rond.
+    const order = REVIEWS.slice().sort(() => Math.random() - 0.5);
+    const count = order.length;
+    renderReviews(reviewsSlider, order.concat(order, order));
+    [...reviewsSlider.children].forEach((card, i) => {
+      if (i < count || i >= count * 2) {
+        card.setAttribute("aria-hidden", "true");
+        card.querySelectorAll("button").forEach((b) => (b.tabIndex = -1));
+      }
+    });
 
     const revPrev = document.getElementById("revPrev");
     const revNext = document.getElementById("revNext");
@@ -219,15 +229,29 @@ document.addEventListener("DOMContentLoaded", function () {
       return first.getBoundingClientRect().width + gap;
     }
 
+    function setWidth() {
+      return count * cardStep();
+    }
+
+    function recenter() {
+      const w = setWidth();
+      if (reviewsSlider.scrollLeft < w * 0.5) reviewsSlider.scrollLeft += w;
+      else if (reviewsSlider.scrollLeft >= w * 1.5) reviewsSlider.scrollLeft -= w;
+    }
+
+    reviewsSlider.scrollLeft = setWidth();
+    let settleTimer = null;
+    reviewsSlider.addEventListener("scroll", () => {
+      if (settleTimer) clearTimeout(settleTimer);
+      settleTimer = setTimeout(recenter, 150);
+    }, { passive: true });
+    window.addEventListener("resize", () => {
+      reviewsSlider.scrollLeft = setWidth() + (reviewsSlider.scrollLeft % setWidth());
+    });
+
     function slide(dir) {
-      const max = reviewsSlider.scrollWidth - reviewsSlider.clientWidth;
-      if (dir > 0 && reviewsSlider.scrollLeft >= max - 4) {
-        reviewsSlider.scrollTo({ left: 0, behavior: "smooth" });
-      } else if (dir < 0 && reviewsSlider.scrollLeft <= 4) {
-        reviewsSlider.scrollTo({ left: max, behavior: "smooth" });
-      } else {
-        reviewsSlider.scrollBy({ left: dir * cardStep(), behavior: "smooth" });
-      }
+      recenter();
+      reviewsSlider.scrollBy({ left: dir * cardStep(), behavior: "smooth" });
     }
 
     let autoTimer = null;
