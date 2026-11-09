@@ -184,7 +184,23 @@ document.addEventListener("DOMContentLoaded", function () {
       const meta = document.createElement("div");
       meta.className = "meta";
       meta.textContent = r.name + (r.place ? ", " + r.place : "") + (r.date ? " \u00b7 " + r.date : "");
-      art.append(stars, title, quote, meta);
+      art.append(stars, title, quote);
+      if (r.text.length > 300) {
+        quote.classList.add("clamped");
+        const more = document.createElement("button");
+        more.type = "button";
+        more.className = "read-more";
+        more.textContent = "Lees meer";
+        more.setAttribute("aria-expanded", "false");
+        more.addEventListener("click", () => {
+          const open = quote.classList.toggle("clamped") === false;
+          more.textContent = open ? "Lees minder" : "Lees meer";
+          more.setAttribute("aria-expanded", String(open));
+          container.dispatchEvent(new CustomEvent("reviewtoggle", { detail: open }));
+        });
+        art.append(more);
+      }
+      art.append(meta);
       container.appendChild(art);
     });
   }
@@ -226,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function startAuto() {
       stopAuto();
-      if (!autoplay || hovering) return;
+      if (!autoplay || hovering || expanded > 0) return;
       autoTimer = setInterval(() => slide(1), 5000);
     }
 
@@ -250,6 +266,17 @@ document.addEventListener("DOMContentLoaded", function () {
     reviewsSlider.addEventListener("keydown", (e) => {
       if (e.key === "ArrowLeft") { slide(-1); pauseThenResume(); }
       if (e.key === "ArrowRight") { slide(1); pauseThenResume(); }
+    });
+    // Een opengeklapte review blijft staan tot hij weer wordt ingeklapt
+    let expanded = 0;
+    reviewsSlider.addEventListener("reviewtoggle", (e) => {
+      expanded += e.detail ? 1 : -1;
+      if (expanded > 0) {
+        if (resumeTimer) clearTimeout(resumeTimer);
+        stopAuto();
+      } else {
+        pauseThenResume();
+      }
     });
     if (revPrev) revPrev.addEventListener("click", () => { slide(-1); pauseThenResume(); });
     if (revNext) revNext.addEventListener("click", () => { slide(1); pauseThenResume(); });
