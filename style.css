@@ -1745,3 +1745,29 @@ textarea::placeholder {
     width: 100%;
   }
 }
+
+/* Vakken in dezelfde stijl als "Kies wat bij jou past": licht getint met een
+   donkere rand bovenaan. Blauw, behalve de finish bij "Zo werkt het". */
+.over-text.card,
+.usp.card,
+.step-body,
+#lesgebied .card,
+.stage-text.card,
+.stage-list-card.card,
+.news-item.card,
+#contact .card {
+  background: #eef6fc;
+  border: 1px solid rgba(63, 151, 207, 0.22);
+  border-top: 4px solid var(--blue-dark);
+}
+
+.step-finish .step-body {
+  background: #fdf1f6;
+  border-color: rgba(213, 95, 143, 0.22);
+  border-top-color: var(--brand);
+}
+
+.step-finish .step-tag {
+  color: #b23a6b;
+  background: rgba(213, 95, 143, 0.14);
+}
