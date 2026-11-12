@@ -1808,3 +1808,7 @@ textarea::placeholder {
 .package.card .pkg-terms {
   background: #fff;
 }
+
+.package-custom .pkg-eyebrow {
+  color: var(--blue-dark);
+}
