@@ -1812,3 +1812,37 @@ textarea::placeholder {
 .package-custom .pkg-eyebrow {
   color: var(--blue-dark);
 }
+
+/* Spoedpakket: roze knop */
+.package.spoed .btn.primary {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.package.spoed .btn.primary:hover {
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
+}
+
+/* Pakket 1 t/m 4: blauw label; Spoed ("Intensief") blijft roze */
+.package:not(.spoed) .pkg-eyebrow {
+  color: var(--blue-dark);
+}
+
+/* Nieuws roze, zodat er niet te veel blauw achter elkaar staat */
+.news-item.card {
+  background: #fdf1f6;
+  border-color: rgba(213, 95, 143, 0.22);
+  border-top-color: var(--brand);
+}
+
+.news-item .news-date {
+  color: #b23a6b;
+}
+
+/* Aanmelden blauw */
+#aanmelden .card {
+  background: #eef6fc;
+  border: 1px solid rgba(63, 151, 207, 0.22);
+  border-top: 4px solid var(--blue-dark);
+}
