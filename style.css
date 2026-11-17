@@ -1202,7 +1202,7 @@ body.menu-open {
 }
 
 .price-group {
-  background: #ffeef6;
+  background: #fef5f9;
   border: 1px solid rgba(213, 95, 143, 0.22);
   border-radius: 16px;
   padding: 16px 18px 18px;
@@ -1760,7 +1760,7 @@ textarea::placeholder {
 }
 
 .step-finish .step-body {
-  background: #ffeef6;
+  background: #fef5f9;
   border-color: rgba(213, 95, 143, 0.22);
 }
 
@@ -1787,7 +1787,7 @@ textarea::placeholder {
 }
 
 .package.card.spoed {
-  background: #ffeef6;
+  background: #fef5f9;
   border: 1px solid rgba(213, 95, 143, 0.3);
 }
 
@@ -1827,7 +1827,7 @@ textarea::placeholder {
 
 /* Nieuws roze, zodat er niet te veel blauw achter elkaar staat */
 .news-item.card {
-  background: #ffeef6;
+  background: #fef5f9;
   border-color: rgba(213, 95, 143, 0.22);
 }
 
