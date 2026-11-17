@@ -1202,9 +1202,8 @@ body.menu-open {
 }
 
 .price-group {
-  background: #fdf1f6;
+  background: #fef7fa;
   border: 1px solid rgba(213, 95, 143, 0.22);
-  border-top: 4px solid var(--brand);
   border-radius: 16px;
   padding: 16px 18px 18px;
   margin-bottom: 16px;
@@ -1756,15 +1755,13 @@ textarea::placeholder {
 .stage-list-card.card,
 .news-item.card,
 #contact .card {
-  background: #eef6fc;
+  background: #f5fafe;
   border: 1px solid rgba(63, 151, 207, 0.22);
-  border-top: 4px solid var(--blue-dark);
 }
 
 .step-finish .step-body {
-  background: #fdf1f6;
+  background: #fef7fa;
   border-color: rgba(213, 95, 143, 0.22);
-  border-top-color: var(--brand);
 }
 
 .step-finish .step-tag {
@@ -1781,7 +1778,7 @@ textarea::placeholder {
 
 /* Pakketten in dezelfde stijl: licht getint, de gekleurde balk bovenaan is de "rand" */
 .package.card {
-  background: #eef6fc;
+  background: #f5fafe;
   border: 1px solid rgba(63, 151, 207, 0.22);
 }
 
@@ -1790,7 +1787,7 @@ textarea::placeholder {
 }
 
 .package.card.spoed {
-  background: #fdf1f6;
+  background: #fef7fa;
   border: 1px solid rgba(213, 95, 143, 0.3);
 }
 
@@ -1800,9 +1797,8 @@ textarea::placeholder {
 }
 
 .package-custom.card {
-  background: #eef6fc;
+  background: #f5fafe;
   border: 1px solid rgba(63, 151, 207, 0.22);
-  border-top: 4px solid var(--blue-dark);
 }
 
 .package.card .pkg-terms {
@@ -1831,9 +1827,8 @@ textarea::placeholder {
 
 /* Nieuws roze, zodat er niet te veel blauw achter elkaar staat */
 .news-item.card {
-  background: #fdf1f6;
+  background: #fef7fa;
   border-color: rgba(213, 95, 143, 0.22);
-  border-top-color: var(--brand);
 }
 
 .news-item .news-date {
@@ -1842,7 +1837,6 @@ textarea::placeholder {
 
 /* Aanmelden blauw */
 #aanmelden .card {
-  background: #eef6fc;
+  background: #f5fafe;
   border: 1px solid rgba(63, 151, 207, 0.22);
-  border-top: 4px solid var(--blue-dark);
 }
