@@ -1894,8 +1894,18 @@ textarea::placeholder {
 .lesauto-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  align-items: stretch;
   padding: 0;
+}
+
+.lesauto-card .card-img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 70%;
+}
+
+.lesauto-text {
+  align-self: center;
 }
 
 .lesauto-text {
@@ -1911,6 +1921,10 @@ textarea::placeholder {
 
   .lesauto-card {
     grid-template-columns: 1fr;
+  }
+
+  .lesauto-card .card-img {
+    height: auto;
   }
 
   .lesauto-text {
