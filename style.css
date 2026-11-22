@@ -1841,37 +1841,79 @@ textarea::placeholder {
   border: 1px solid rgba(63, 151, 207, 0.22);
 }
 
-/* Eigen foto's */
+/* Eigen foto's, niet bijgesneden */
+.over-layout {
+  display: block;
+}
+
+.over-text .over-photo {
+  float: right;
+  width: 44%;
+  margin: 0 0 14px 28px;
+}
+
+.over-text::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .over-img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: var(--r);
+  border-radius: 12px;
+}
+
+.over-photo figcaption {
+  margin-top: 8px;
 }
 
 .card-img {
   display: block;
-  width: calc(100% + 36px);
-  max-width: none;
+  width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  margin: -18px -18px 16px;
+}
+
+/* Lesgebied boven, lesauto eronder: foto links, tekst rechts */
+#lesgebied .grid.two {
+  grid-template-columns: 1fr;
 }
 
 #lesgebied .card {
   overflow: hidden;
 }
 
-@media (max-width: 900px) {
-  .over-img {
-    aspect-ratio: 4 / 3;
-    object-position: 50% 35%;
+@media (min-width: 901px) {
+  #lesgebied .region-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 680px;
   }
 }
 
-#lesgebied .grid {
-  align-items: start;
+.lesauto-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0;
+}
+
+.lesauto-text {
+  padding: 22px 26px;
+}
+
+@media (max-width: 900px) {
+  .over-text .over-photo {
+    float: none;
+    width: auto;
+    margin: 0 0 18px;
+  }
+
+  .lesauto-card {
+    grid-template-columns: 1fr;
+  }
+
+  .lesauto-text {
+    padding: 16px 18px 18px;
+  }
 }
