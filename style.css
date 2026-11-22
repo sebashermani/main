@@ -1840,3 +1840,38 @@ textarea::placeholder {
   background: #f5fafe;
   border: 1px solid rgba(63, 151, 207, 0.22);
 }
+
+/* Eigen foto's */
+.over-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--r);
+}
+
+.card-img {
+  display: block;
+  width: calc(100% + 36px);
+  max-width: none;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  margin: -18px -18px 16px;
+}
+
+#lesgebied .card {
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .over-img {
+    aspect-ratio: 4 / 3;
+    object-position: 50% 35%;
+  }
+}
+
+#lesgebied .grid {
+  align-items: start;
+}
