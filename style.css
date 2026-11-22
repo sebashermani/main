@@ -1908,6 +1908,14 @@ textarea::placeholder {
   align-self: center;
 }
 
+.lesauto-text h3 {
+  font-size: 17px;
+}
+
+.lesauto-text p {
+  font-size: 14.5px;
+}
+
 .lesauto-text {
   padding: 22px 26px;
 }
